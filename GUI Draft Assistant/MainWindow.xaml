@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_Draft_Assistant"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="League Draft Assistant" Height="600" Width="800">
+    <Border Padding="10">
+        <StackPanel>
+
+            <!-- Main Title -->
+            <StackPanel>
+            
+                <TextBlock FontSize="38" HorizontalAlignment="Center"
+                           Margin="0 30 0 10" >
+                    <Bold>Welcome to League Draft Assistant !</Bold>
+                </TextBlock>
+                <TextBlock FontSize="26" HorizontalAlignment="Center">
+                    What do you want to do ?
+                </TextBlock>
+            
+            </StackPanel>
         
-    </Grid>
+            <!-- Buttons Grid -->
+            <Grid>
+            
+                <!-- Definition des lignes -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Reset Button -->
+                <Button x:Name="Reset" Grid.Row="0" Margin="20" FontSize="26" Width="280">
+                    Reset the stats !
+                </Button>
+
+                <!-- Input Button -->
+                <Button x:Name="Input" Grid.Row="1" Margin="20" FontSize="26" Width="280">
+                    Retrieve LCS Data !
+                </Button>
+                
+                <!-- Draft Button -->
+                <Button x:Name="Draft" Grid.Row="2" Margin="20" FontSize="26" Width="280">
+                    Draft !
+                </Button>
+                
+                <!-- DEBUG Button -->
+                <Button x:Name="Debug" Grid.Row="3" Margin="20" FontSize="26" Width="280">
+                    DEBUG MODE
+                </Button>
+                
+                <!-- Settings Button -->
+                <Button x:Name="Settings" Grid.Row="4" Margin="20" 
+                        FontSize="26" Width="280" Click="Settings_Click">
+                    Settings
+                </Button>
+
+            </Grid>
+        
+        </StackPanel>
+    </Border>
 </Window>

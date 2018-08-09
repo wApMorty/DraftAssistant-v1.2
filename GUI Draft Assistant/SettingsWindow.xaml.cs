@@ -10,26 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI_Draft_Assistant
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour SettingsWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SettingsWindow : Window
     {
-        public MainWindow()
+        public SettingsWindow()
         {
             InitializeComponent();
         }
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void Home_Menu(object sender, RoutedEventArgs e)
         {
-            SettingsWindow w = new SettingsWindow();
+            MainWindow w = new MainWindow();
             w.Show();
             this.Close();
+        }
+
+        private void HistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+
+
         }
     }
 }
