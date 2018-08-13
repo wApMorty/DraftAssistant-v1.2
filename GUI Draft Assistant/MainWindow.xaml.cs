@@ -31,5 +31,10 @@ namespace GUI_Draft_Assistant
             w.Show();
             this.Close();
         }
+
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            Initializer.Initialize();
+        }
     }
 }

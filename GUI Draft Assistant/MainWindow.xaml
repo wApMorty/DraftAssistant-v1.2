@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Reset Button -->
-                <Button x:Name="Reset" Grid.Row="0" Margin="20" FontSize="26" Width="280">
+                <Button x:Name="Reset" Grid.Row="0" Margin="20" FontSize="26" Width="280" Click="Reset_Click">
                     Reset the stats !
                 </Button>
 

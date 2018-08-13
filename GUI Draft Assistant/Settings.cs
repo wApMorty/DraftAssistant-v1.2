@@ -4,23 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace GUI_Draft_Assistant
 {
-    static class Settings
+    public class Settings : ApplicationSettingsBase
     {
-        public static string DataPath;
-        public static DialogResult HistoryPath;
-
-        public static void SetDataPath(string p)
+        [UserScopedSetting]
+        public string DataPath
         {
-            DataPath = p;
+            get => this.DataPath;
+            set
+            {
+                this["DataPath"] = value;
+            }
         }
 
-        public static void SetHistoryPath(DialogResult p)
+        [UserScopedSetting]
+        public string HistoryPath
         {
-            HistoryPath = p;
+            get => this.HistoryPath;
+            set
+            {
+                this["HistoryPath"] = value;
+            }
         }
+
 
     }
 }
