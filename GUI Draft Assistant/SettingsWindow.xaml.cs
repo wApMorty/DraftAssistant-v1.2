@@ -20,11 +20,10 @@ namespace GUI_Draft_Assistant
     /// </summary>
     public partial class SettingsWindow : Window
     {
-        Settings settings;
+
         public SettingsWindow()
         {
             InitializeComponent();
-            settings = new Settings();
         }
 
         private void Home_Menu(object sender, RoutedEventArgs e)
@@ -42,7 +41,8 @@ namespace GUI_Draft_Assistant
                 DialogResult result = fbd.ShowDialog();
                 if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    settings.DataPath = fbd.SelectedPath + @"\Database.JSON";
+                    Properties.Settings.Default.DataPath = fbd.SelectedPath + @"\Database.JSON";
+                    DataBox.Text = fbd.SelectedPath + @"\Database.JSON";
                 }
             }
         }
@@ -53,7 +53,8 @@ namespace GUI_Draft_Assistant
                 DialogResult result = fbd.ShowDialog();
                 if (result == System.Windows.Forms.DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
-                    settings.HistoryPath = fbd.SelectedPath + @"\History.txt";
+                    Properties.Settings.Default.HistoryPath = fbd.SelectedPath + @"\History.txt";
+                    HistoryBox.Text = fbd.SelectedPath + @"\History.txt";
                 }
             }
         }

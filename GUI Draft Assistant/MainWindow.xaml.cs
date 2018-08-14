@@ -36,5 +36,12 @@ namespace GUI_Draft_Assistant
         {
             Initializer.Initialize();
         }
+
+        private void Input_Click(object sender, RoutedEventArgs e)
+        {
+            InputWindow w = new InputWindow();
+            w.Show();
+            this.Close();
+        }
     }
 }

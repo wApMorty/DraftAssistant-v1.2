@@ -12,14 +12,14 @@
 
             <!-- TITLE -->
             <TextBlock FontSize="40" TextWrapping="WrapWithOverflow"  HorizontalAlignment="Center" TextAlignment="Center">
-                Veuillez saisir les données des matchs LCS le plus récents"
+                Veuillez saisir les données des matchs LCS les plus récents
             </TextBlock>
 
             <!-- Barre de saisie -->
-            <TextBox Padding="2" Height="20" Margin="10 50" AcceptsReturn="True" KeyDown="TextBox_KeyDown"/>
+            <TextBox x:Name="InputBox" Padding="2" Height="20" Margin="10 50" AcceptsReturn="True" KeyDown="TextBox_KeyDown"/>
 
             <!-- Validation Button -->
-            <Button Height="30" Width="200" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Height="30" Width="200" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click">
                 Valider
             </Button>
             

@@ -40,7 +40,7 @@
                 </Button>
 
                 <!-- Input Button -->
-                <Button x:Name="Input" Grid.Row="1" Margin="20" FontSize="26" Width="280">
+                <Button x:Name="Input" Grid.Row="1" Margin="20" FontSize="26" Width="280" Click="Input_Click">
                     Retrieve LCS Data !
                 </Button>
                 

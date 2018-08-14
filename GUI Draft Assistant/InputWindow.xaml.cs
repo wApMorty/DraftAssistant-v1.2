@@ -30,10 +30,12 @@ namespace GUI_Draft_Assistant
         {
             if (e.Key == Key.Enter)
             {
-                Settings s = new Settings();
-                Champion[] champions = JsonConvert.DeserializeObject<Champion[]>(File.ReadAllText(s.DataPath));
-                string input = e.Source as string;
-                using (StreamWriter sw = File.AppendText(s.HistoryPath)) //On ajoute la ligne saisie au fichier texte
+
+                Champion[] champions = JsonConvert.DeserializeObject<Champion[]>(File.ReadAllText(Properties.Settings.Default.DataPath));
+                string input = InputBox.Text as string;
+                InputBox.Text = "";
+
+                using (StreamWriter sw = File.AppendText(Properties.Settings.Default.HistoryPath)) //On ajoute la ligne saisie au fichier texte
                 {
                     sw.WriteLine(input);
                 }
@@ -68,6 +70,13 @@ namespace GUI_Draft_Assistant
                     c.LoseWith(loseComp);
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow w = new MainWindow();
+            w.Show();
+            this.Close();
         }
     }
 }

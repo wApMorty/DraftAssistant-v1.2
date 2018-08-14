@@ -180,7 +180,7 @@ namespace GUI_Draft_Assistant
             #endregion
 
             #region Serialization dans un JSON
-            File.WriteAllText(Settings.DataPath, JsonConvert.SerializeObject(champions));
+            File.WriteAllText(Properties.Settings.Default.DataPath, JsonConvert.SerializeObject(champions));
             #endregion
         }
 
