@@ -64,12 +64,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Draft1Window.xaml.cs">
-      <DependentUpon>Draft1Window.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Draft2Window.xaml.cs">
-      <DependentUpon>Draft2Window.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DraftWindow.xaml.cs">
       <DependentUpon>DraftWindow.xaml</DependentUpon>
     </Compile>
@@ -87,14 +81,6 @@
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Team.cs" />
-    <Page Include="Draft1Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Draft2Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="DraftWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
