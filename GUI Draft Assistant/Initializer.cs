@@ -179,9 +179,15 @@ namespace GUI_Draft_Assistant
             yorick, zac, zed, ziggs, zilean, zoe, zyra};
             #endregion
 
-            #region Serialization dans un JSON
+            //Serialization dans un JSON
             File.WriteAllText(Properties.Settings.Default.DataPath, JsonConvert.SerializeObject(champions));
-            #endregion
+
+            //Creation du fichier texte History.txt
+            string path = Properties.Settings.Default.HistoryPath;
+            if (!File.Exists(path)){
+                File.CreateText(path);
+            }
+
         }
 
     }

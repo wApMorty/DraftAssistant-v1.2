@@ -10,43 +10,37 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GUI_Draft_Assistant
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour DraftWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DraftWindow : Window
     {
-        public MainWindow()
+        public DraftWindow()
         {
             InitializeComponent();
         }
 
-        private void Settings_Click(object sender, RoutedEventArgs e)
+        private void Return_Click(object sender, RoutedEventArgs e)
         {
-            SettingsWindow w = new SettingsWindow();
+            MainWindow w = new MainWindow();
             w.Show();
             this.Close();
         }
 
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            Initializer.Initialize();
-        }
-
-        private void Input_Click(object sender, RoutedEventArgs e)
-        {
-            InputWindow w = new InputWindow();
+            Draft1Window w = new Draft1Window();
             w.Show();
             this.Close();
         }
 
-        private void Draft_Click(object sender, RoutedEventArgs e)
+        private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            DraftWindow w = new DraftWindow();
+            Draft2Window w = new Draft2Window();
             w.Show();
             this.Close();
         }

@@ -69,6 +69,8 @@ namespace GUI_Draft_Assistant
                     c.LoseAgainst(winComp);
                     c.LoseWith(loseComp);
                 }
+
+                File.WriteAllText(Properties.Settings.Default.DataPath, JsonConvert.SerializeObject(champions));
             }
         }
 

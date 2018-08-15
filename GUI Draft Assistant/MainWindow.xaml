@@ -35,27 +35,23 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Reset Button -->
-                <Button x:Name="Reset" Grid.Row="0" Margin="20" FontSize="26" Width="280" Click="Reset_Click">
+                <Button x:Name="Reset" Grid.Row="0" Margin="30" FontSize="26" Width="280" Click="Reset_Click">
                     Reset the stats !
                 </Button>
 
                 <!-- Input Button -->
-                <Button x:Name="Input" Grid.Row="1" Margin="20" FontSize="26" Width="280" Click="Input_Click">
+                <Button x:Name="Input" Grid.Row="1" Margin="30" FontSize="26" Width="280" Click="Input_Click">
                     Retrieve LCS Data !
                 </Button>
                 
                 <!-- Draft Button -->
-                <Button x:Name="Draft" Grid.Row="2" Margin="20" FontSize="26" Width="280">
+                <Button x:Name="Draft" Grid.Row="2" Margin="30" 
+                        FontSize="26" Width="280" Click="Draft_Click">
                     Draft !
                 </Button>
-                
-                <!-- DEBUG Button -->
-                <Button x:Name="Debug" Grid.Row="3" Margin="20" FontSize="26" Width="280">
-                    DEBUG MODE
-                </Button>
-                
+
                 <!-- Settings Button -->
-                <Button x:Name="Settings" Grid.Row="4" Margin="20" 
+                <Button x:Name="Settings" Grid.Row="4" Margin="30" 
                         FontSize="26" Width="280" Click="Settings_Click">
                     Settings
                 </Button>

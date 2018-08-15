@@ -12,55 +12,6 @@ namespace GUI_Draft_Assistant
     static class Menus
     {
 
-        //Saisie massive de stats
-        public static void InputData()
-        {
-            Console.Clear();
-            Champion[] champions = JsonConvert.DeserializeObject<Champion[]>(File.ReadAllText(@"D:\Paul\Documents\Visual Studio workspace\Draft Assistant 3rd try\Draft Assistant\Draft Assistant\Database.JSON"));
-            Console.WriteLine("Saisissez les dernieres compos de matchs LCS, en commencant par l'equipe qui a gagné !");
-            Console.WriteLine("Synthaxe : Ecrivez le nom francais des champions, et séparez par une virgule, sans espace");
-            Console.WriteLine("Une fois que vous aurez fini, appuyez sur x pour retourner au menu principal");
-            string input = Console.ReadLine();
-
-            while (input != "x")
-            {
-                string[] splitChampions = input.Split(',');
-                Team winComp = new Team();
-                Team loseComp = new Team();
-
-                //Remplissage des équipes
-                for (int i = 0; i < 5; i++)
-                {
-                    winComp.Add(champions.SingleOrDefault(item => item.Name == splitChampions[i]));
-                    loseComp.Add(champions.SingleOrDefault(item => item.Name == splitChampions[i + 5]));
-                }
-
-                //Modification des stats
-                //Equipe gagnante
-                foreach (Champion c in winComp)
-                {
-                    c.WinWith(winComp);
-                    c.WinAgainst(loseComp);
-                }
-
-                //Equipe perdante
-                foreach (Champion c in loseComp)
-                {
-                    c.LoseAgainst(winComp);
-                    c.LoseWith(loseComp);
-                }
-                input = Console.ReadLine();
-            }
-
-            Console.Clear();
-            Console.WriteLine("Enregistrement des modifications en cours");
-            File.WriteAllText(@"D:\Paul\Documents\Visual Studio workspace\Draft Assistant 3rd try\Draft Assistant\Draft Assistant\Database.JSON",
-    JsonConvert.SerializeObject(champions));
-            Console.Clear();
-            Console.WriteLine("Enregistrement terminé !");
-            Thread.Sleep(2000);
-        }
-
         //Simulation de draft
         public static void Draft()
         {
