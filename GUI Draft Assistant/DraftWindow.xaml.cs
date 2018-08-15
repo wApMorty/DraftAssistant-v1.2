@@ -22,6 +22,9 @@ namespace GUI_Draft_Assistant
         public DraftWindow()
         {
             InitializeComponent();
+            DraftMenu.Visibility = Visibility.Visible;
+            FirstPick.Visibility = Visibility.Collapsed;
+            SecondPick.Visibility = Visibility.Collapsed;
         }
 
         private void Return_Click(object sender, RoutedEventArgs e)
@@ -33,16 +36,40 @@ namespace GUI_Draft_Assistant
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            Draft1Window w = new Draft1Window();
-            w.Show();
-            this.Close();
+            DraftMenu.Visibility = Visibility.Collapsed;
+            FirstPick.Visibility = Visibility.Visible;
+            SecondPick.Visibility = Visibility.Collapsed;
+            Output1.Text = "Quels sont les bans ?";
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
-            Draft2Window w = new Draft2Window();
-            w.Show();
-            this.Close();
+            DraftMenu.Visibility = Visibility.Collapsed;
+            FirstPick.Visibility = Visibility.Collapsed;
+            SecondPick.Visibility = Visibility.Visible;
+            Output2.Text = "Quels sont les bans ?";
+        }
+
+        private void Input1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string input = Input1.Text;
+                Input1.Text = "";
+                string[] inputList = input.Split(',');
+
+            }
+        }
+
+        private void Input2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                string input = Input2.Text;
+                Input2.Text = "";
+                string[] inputList = input.Split(',');
+
+            }
         }
     }
 }
