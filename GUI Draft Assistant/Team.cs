@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Draft_Assistant
 {
-    class Team : List<Champion>
+    public class Team : List<Champion>
     {
         public int Length { get; internal set; }
     }

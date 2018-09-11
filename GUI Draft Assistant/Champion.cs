@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GUI_Draft_Assistant
 {
-    class Champion
+    public class Champion : INotifyPropertyChanged
     {
 
         public string Name { get; set; }
+        public double Winrate { get; set; }
         public int Number
         {
             get
@@ -164,6 +166,9 @@ namespace GUI_Draft_Assistant
         public double[,] AllyWinrate; //Format [Win avec, Lose avec] pour chaque champion
         public double[,] EnemyWinrate; //Format [Win contre, Lose contre] pour chaque champion
 
+        //TO DO : Gerer ca
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public Champion(string n)
         {
             this.Name = n;
@@ -183,18 +188,20 @@ namespace GUI_Draft_Assistant
         #region Methodes de calcul des winrates
         public double GetWinrate()
         {
-
-            if ((AllyWinrate[this.Number - 1, 0] + AllyWinrate[this.Number - 1, 1] < 10))
+            double winrate = 0;
+            if ((AllyWinrate[this.Number - 1, 0] + AllyWinrate[this.Number - 1, 1] > 10))
             {
-                return 0;
+                winrate = AllyWinrate[this.Number - 1, 0] / (AllyWinrate[this.Number - 1, 0] + AllyWinrate[this.Number - 1, 1]);
             }
-            return AllyWinrate[this.Number - 1, 0] / (AllyWinrate[this.Number - 1, 0] + AllyWinrate[this.Number - 1, 1]);
+            this.Winrate = winrate;
+            return winrate;
         }
 
         public double GetWinrateWith(Team compo)
         {
             double totalWins = 0;
             double totalLoss = 0;
+            double winrate = 0;
             foreach (Champion champ in compo)
             {
                 totalWins += AllyWinrate[champ.Number - 1, 0];
@@ -202,9 +209,10 @@ namespace GUI_Draft_Assistant
             }
             if (totalWins + totalLoss < 10)
             {
-                return 0;
+                winrate = totalWins / (totalLoss + totalWins);
             }
-            return totalWins / (totalLoss + totalWins);
+            this.Winrate = winrate;
+            return winrate;
         }
         public double GetWinrateAgainst(Team compo)
         {
@@ -219,6 +227,7 @@ namespace GUI_Draft_Assistant
             {
                 return 0;
             }
+            this.Winrate = totalWins / (totalLoss + totalWins);
             return totalWins / (totalLoss + totalWins);
         }
         public double GetWinrate(Team alliedComp, Team enemyComp)
